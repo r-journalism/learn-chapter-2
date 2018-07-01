@@ -2,9 +2,17 @@
 
 These files and folders are meant to accompany the second chapter from the learn.r-journalism.com class.
 
-To make sure these files work please make sure the project directory is set up correctly: *Session > Set Working Directory > To Project Directory *
+Clone or download and unzip this repo. Make sure the folder is **not** in a temporary unzipped folder.
+
+To ensure these files work as expected, please make sure the project directory is set up correctly: 
 
 When you type `getwd()` it should look something like `your_file_path/learn-r-chapter-2`
+
+You can manually set this up by:
+
+*Session > Set Working Directory > To Project Directory*
+
+Alternatively, you can double click the **learn-chapter-2.Rproj** file from your finder/file browser.
 
 Navigate to the .rmd files for each sub-chapter to open and follow along with each section.
 
