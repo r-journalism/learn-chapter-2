@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1530452530066.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F62DEE64",
+    "lastKnownWriteTime" : 1530453717,
+    "last_content_update" : 1530453717792,
+    "path" : "~/Projects/r-journalism/learn-chapter-2/copying_pasting/copying-pasting.Rmd",
+    "project_path" : "copying_pasting/copying-pasting.Rmd",
+    "properties" : {
+        "cursorPosition" : "3,67",
+        "scrollLine" : "1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

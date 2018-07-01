@@ -1,0 +1,86 @@
+---
+title: "JSON data"
+author: "Andrew Ba Tran"
+description: "http://learn.r-journalism.com/en/importing_exporting/"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+This is from the [second chapter](https://learn.r-journalism.com/enjson-files/) of [learn.r-journalism.com](https://learn.r-journalism.com/).
+
+
+JSON stands for JavaScript Object Notation and is the data structure behind many website features like maps.
+
+
+## Tracking down a website's JSON
+
+Let's say theoretically you were interested in compiling a list of all Sinclair Broadcast TV stations and their locations.
+
+You'd first visit their web site.
+
+![](images/sinclair1.png)
+
+And then you might find they have a map!
+![](images/sinclair2.png)
+
+Look at the developer tools in your browser and click over to **Network** you could sort by size and see there's a **json** file being called by the map.
+
+![](images/sinclair3.png)
+
+If you click into the json link you'll see this data structure that includes affiliation, call letters, and latitude and longitude.
+
+![](images/sinclair4.png)
+
+Here's a close up.
+
+## Importing JSON
+
+It looks like it could be transformed into rectangular data frame so we can analyze it.
+
+![](images/sinclair5.png)
+
+## jsonlite package
+
+We're going to use the [**jsonlite** ](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html)
+
+First, install and load the package.
+
+```{r import}
+#install.packages("jsonlite")
+library(jsonlite)
+```
+
+Then point to where the json file is. You can use the URL or the local path to it if you've downloaded it. I recommend downloading it as a backup in case the website is restructured.
+
+Use the `fromJSON()` function.
+
+```{r json_address}
+json_url <-"http://sbgi.net/resources/assets/sbgi/MetaverseStationData.json"
+
+## If the url above doesn't exist anymore uncomment the line below and run it
+# json_url <- "data/MetaverseStationData.json"
+
+stations <- fromJSON(json_url)
+```
+
+Let's look at the structure of what we've imported.
+
+```{r structure}
+str(stations)
+```
+
+And how's it now look as a data frame?
+
+```{r view1, eval=F}
+View(stations)
+```
+
+![](images/json_example.png)
+
+Alright, this is a great start.
+
+We can proceed to analyzing it and maybe visualizing it ourselves on a map.
+
+But we'll get to that in later chapters.

@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1530453620756.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "6F1FFDCD",
+    "lastKnownWriteTime" : 1530454678,
+    "last_content_update" : 1530454678210,
+    "path" : "~/Projects/r-journalism/learn-chapter-2/delimited_text/delimited-text.Rmd",
+    "project_path" : "delimited_text/delimited-text.Rmd",
+    "properties" : {
+        "cursorPosition" : "38,3",
+        "scrollLine" : "32"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

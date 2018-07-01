@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1530454056219.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "98D5C97F",
+    "lastKnownWriteTime" : 1530454355,
+    "last_content_update" : 1530454355218,
+    "path" : "~/Projects/r-journalism/learn-chapter-2/spss/spss.Rmd",
+    "project_path" : "spss/spss.Rmd",
+    "properties" : {
+        "cursorPosition" : "52,43",
+        "scrollLine" : "41"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
