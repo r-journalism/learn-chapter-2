@@ -46,6 +46,7 @@ Or you can execute the following commands in the console to bring up the files.
 * `file.edit("excel/excel.Rmd")`
 * `file.edit("json/json.Rmd")`
 * `file.edit("spss/spss.Rmd")`
+* `file.edit("folder_of_files/folder-of-files.Rmd")`
 
 To view the local html version of the .rmd files, you can try the following commands in your console to see rendered version of the sub-chapter:
 
@@ -55,6 +56,6 @@ To view the local html version of the .rmd files, you can try the following comm
 * `browseURL("excel/excel.html")`
 * `browseURL("json/json.html")`
 * `browseURL("spss/spss.html")`
+* `browseURL("folder_of_files/folder-of-files.html")`
 
-
-
+----
