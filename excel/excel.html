@@ -94,6 +94,9 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -266,7 +269,7 @@ library(readxl)</code></pre>
 <h2>read_excel()</h2>
 <p>Excel spreadsheets have multiple sheets and it’s best to explore what it looks like in Excel first because <code>read_excel()</code> requires specific sheets to be referred to when importing.</p>
 <p>Give it a shot with the first sheet.</p>
-<pre class="r"><code>df_xl &lt;- read_excel(&quot;StatisticsSummary.xls&quot;, sheet=1)</code></pre>
+<pre class="r"><code>df_xl &lt;- read_excel(&quot;data/StatisticsSummary.xls&quot;, sheet=1)</code></pre>
 <p>Check it</p>
 <pre class="r"><code>View(df_xl)</code></pre>
 <div class="figure">

@@ -18,11 +18,11 @@ JSON stands for JavaScript Object Notation and is the data structure behind many
 
 Let's say theoretically you were interested in compiling a list of all Sinclair Broadcast TV stations and their locations.
 
-You'd first visit their web site.
+You'd first visit their [web site](http://sbgi.net/).
 
 ![](images/sinclair1.png)
 
-And then you might find they have a map!
+And then you might find they have [a map](http://sbgi.net/tv-stations/)!
 ![](images/sinclair2.png)
 
 Look at the developer tools in your browser and click over to **Network** you could sort by size and see there's a **json** file being called by the map.
