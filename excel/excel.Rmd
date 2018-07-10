@@ -55,7 +55,7 @@ Excel spreadsheets have multiple sheets and it's best to explore what it looks l
 Give it a shot with the first sheet.
 
 ```{r first_sheet, eval=F}
-df_xl <- read_excel("StatisticsSummary.xls", sheet=1)
+df_xl <- read_excel("data/StatisticsSummary.xls", sheet=1)
 ```
 
 Check it
