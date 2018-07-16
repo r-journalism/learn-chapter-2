@@ -59,3 +59,18 @@ To view the local html version of the .rmd files, you can try the following comm
 * `browseURL("folder_of_files/folder-of-files.html")`
 
 ----
+
+
+## Test yourself
+
+```
+install.packages("learnr")
+install.packages("rmarkdown")
+install.packages("tidyverse")
+```
+
+and then
+
+```
+rmarkdown::run("chapter-2/index.Rmd")
+```
