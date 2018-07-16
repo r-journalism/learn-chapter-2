@@ -1,11 +1,13 @@
 ---
 title: "SPSS data"
 author: "Andrew Ba Tran"
-description: "http://learn.r-journalism.com/en/importing_exporting/"
 output:
+  pdf_document:
+    toc: yes
   html_document:
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
+description: http://learn.r-journalism.com/en/importing_exporting/
 ---
 
 This is from the [second chapter](https://learn.r-journalism.com/enspss-files/) of [learn.r-journalism.com](https://learn.r-journalism.com/).
@@ -21,11 +23,11 @@ In this example, we'll be working with case-level data from the FBI's Supplement
 
 *Here's a [New Yorker article](https://www.newyorker.com/magazine/2017/11/27/the-serial-killer-detector) about the Murder Accountability Project and its founder Thomas Hargrove, a journalist who tries to find serial killers with data and algorithms. We'll be digging through the data and applying the algorithm ourselves in the next chapter.*
 
-The data zipped is 30 megabytes. Unzipped, the file is almost 200 mb (Good luck opening that in Excel).
+The data zipped is 30 megabytes. Unzipped, the file is almost 200 MB (Good luck opening that in Excel).
 
-But R can handle big data (to an extent). Data is saved to the computer's memory. If your computer's memory is 16 gigabytes then that's the max file size you can import. I don't recommend pushing it to that point because it still takes a lot of memory to run R's functions. If get to the point of working with big data, then there are strategies like putting data into a mysql database.
+But R can handle big data (to an extent). Data is saved to the computer's memory. If your computer's memory is 16 gigabytes then that's the max file size you can import. I don't recommend pushing it to that point because it still takes a lot of memory to run R's functions. If get to the point of working with big data, then there are strategies like putting data into a MySQL database.
 
-First download the data. And unzip it into the "data"" subdirectory of this working directory.
+First download the data. And unzip it into the "data"" sub directory of this working directory.
 
 If you're working with the local data from downloaded from this course's repo, just run the lines of code below.
 

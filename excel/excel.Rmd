@@ -1,11 +1,11 @@
 ---
 title: "Excel files"
 author: "Andrew Ba Tran"
-description: "http://learn.r-journalism.com/en/importing_exporting/"
 output:
   html_document:
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
+description: http://learn.r-journalism.com/en/importing_exporting/
 ---
 
 This is from the [second chapter](https://learn.r-journalism.com/en/importing_exporting/excel/excel-files/) of [learn.r-journalism.com](https://learn.r-journalism.com/).
@@ -16,13 +16,13 @@ Excel spreadsheets are unique in that they can contain multiple spreadsheets as 
 
 Excel file names end with a **.xls** or **.xlsx**
 
-![](//learn.r-journalism.com/importing_exporting/csv/images/excel1.png?classes=shadow)
+![](images/excel1.png)
 
 ## What an Excel file looks like on the inside
 
 Weird, right? Definitely difficult to parse.
 
-![](//learn.r-journalism.com/importing_exporting/csv/images/excel2.png?classes=shadow)
+![](images/excel2.png)
 
 ## Importing Excel files
 - Importing Excel is complicated, **readxl package** is needed
@@ -46,7 +46,7 @@ You gotta download the file first.
 
 Right click the link of the [Excel data link](http://www.ct.gov/ocme/cwp/view.asp?a=2165&Q=295128&ocmeNav=|) and click **Save File As...**
 
-![](//learn.r-journalism.com/importing_exporting/csv/images/saveexcel.png?classes=shadow)
+![](images/saveexcel.png)
 
 ## read_excel()
 
@@ -64,7 +64,7 @@ Check it
 View(df_xl)
 ```
 
-![](//learn.r-journalism.com/importing_exporting/csv/images/excel_imported.png?classes=shadow)
+![](images/excel_imported.png)
 
 
 **This isn't right**. 
@@ -86,7 +86,7 @@ Much better
 View(df_xl)
 ```
 
-![](//learn.r-journalism.com/importing_exporting/csv/images/excel_imported2.png?classes=shadow)
+![](images/excel_imported2.png)
 
 {{% notice warning %}}
 Notice that the column names are preserved with spaces and symbols.
@@ -131,7 +131,7 @@ Check it
 View(df_xl)
 ```
 
-![](//learn.r-journalism.com/importing_exporting/csv/images/makenames.png?classes=shadow)
+![](images/makenames.png)
 
 ```{r new_colnames}
 colnames(df_xl)
@@ -184,7 +184,7 @@ Fix the other names if you want. I'm going to leave them as is for now.
 
 Scroll down to the bottom of the data.
 
-![](//learn.r-journalism.com/importing_exporting/csv/images/nas.png?classes=shadow)
+![](images/nas.png)
 
 
 Not clean yet. There are a bunch of `NA`s. 
@@ -216,11 +216,11 @@ What's the difference? dplyr is part of the tidyverse suite of packages that we'
 
 ### Check it
 
-![](//learn.r-journalism.com/importing_exporting/csv/images/no.nas.png?classes=shadow)
+![](images/no.nas.png)
 
 No `NAs` at the bottom.
 
-It took a few lines of code but the data's cleaned up enough to analyze or visualize with.
+It took a few lines of code but the data has been cleaned up enough to analyze or visualize with.
 
 ## Exporting to Excel
 

@@ -1,11 +1,13 @@
 ---
 title: "CSV files"
 author: "Andrew Ba Tran"
-description: "learn.r-journalism.com/en/importing_exporting/"
 output:
+  pdf_document:
+    toc: yes
   html_document:
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
+description: learn.r-journalism.com/en/importing_exporting/
 ---
 
 This is from the [second chapter](https://learn.r-journalism.com/en/importing_exporting/csv/csv-files/) of [learn.r-journalism.com](https://learn.r-journalism.com/).
@@ -17,14 +19,14 @@ Comma separated files are the most common way to save spreadsheets that doesn't 
 
 CSV file names end with a **.csv**
 
-![](images/csv1.png?classes=shadow)
+![](images/csv1.png)
 
 
 ## What a csv file looks like on the inside
 
 This explains the values separated with commas part of the file name.
 
-![](images/csv2.png?classes=shadow)
+![](images/csv2.png)
 
 # Importing CSV files
 
@@ -40,14 +42,15 @@ This explains the values separated with commas part of the file name.
 
 If you have the link to a CSV file, right click [the link](https://data.ct.gov/Health-and-Human-Services/Admissions-to-DMHAS-Addiction-Treatment-by-Town-Ye/iyru-82zq/data) of the data and click **Copy Link Address**. This data set can be found on the [Connecticut Open Data Portal](https://data.ct.gov/Health-and-Human-Services/Admissions-to-DMHAS-Addiction-Treatment-by-Town-Ye/iyru-82zq/).
 
-![](images/rightclick.png?classes=shadow)
+![](images/rightclick.png)
 
 ## read.csv()
 
 The Base R function to import a CSV file is `read.csv()`. Just put the URL address in quotation marks and add the `stringsAsFactors=F` (In this code we're using the function `head()` which looks at the first 10 rows of data by default. We could pass it a number to change the number of rows to display)
 
 ```{r segment1}
-df_csv <- read.csv("https://data.ct.gov/api/views/iyru-82zq/rows.csv?accessType=DOWNLOAD", stringsAsFactors=F)
+df_csv <- read.csv("https://data.ct.gov/api/views/iyru-82zq/rows.csv?accessType=DOWNLOAD", 
+                   stringsAsFactors=F)
 head(df_csv)
 ```
 
@@ -56,19 +59,19 @@ head(df_csv)
 
 When you right click on the link, instead of clicking **Copy Link Address**-- this time, click **Save Link As...**
 
-![](images/downloading.png?classes=shadow)
+![](images/downloading.png)
 
 Save to your working directory.
 
 After saving to the directory, click on the circle arrow on the right to refresh the files to make sure it's there.
 
-![](images/directory.png?classes=shadow)
+![](images/directory.png)
 
 ## Recall: How to change directories in RStudio
 
 Either by typing `setwd("/directory/where/you/want")` or by clicking in the menu up top **Session > Set Working Directory > Choose Directory...**
 
-![](images/setwd.png?classes=shadow)
+![](images/setwd.png)
 
 ## Importing local csv data
 
@@ -77,7 +80,8 @@ Just like before, except instead of the URL, it's the name of the file.
 **Note:** This will only work if the working directory is set to where the csv file is.
 
 ```{r segment2}
-df_csv <- read.csv("data/Admissions_to_DMHAS_Addiction_Treatment_by_Town__Year__and_Month.csv", stringsAsFactors=F)
+df_csv <- read.csv("data/Admissions_to_DMHAS_Addiction_Treatment_by_Town__Year__and_Month.csv",
+                   stringsAsFactors=F)
 ```
 
 

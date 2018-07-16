@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 ## Chapter 2
 
 These files and folders are meant to accompany the second chapter from the learn.r-journalism.com class.
@@ -60,8 +65,14 @@ To view the local html version of the .rmd files, you can try the following comm
 
 ----
 
-
 ## Test yourself
+
+There are links to exercise what you've learned spread through out this section.
+
+It's possible to run these files locally to test yourself if you've downloaded the files for the chapter as instructed above.
+
+Make sure your project directory is correct and then run these lines in the console:
+
 
 ```
 install.packages("learnr")

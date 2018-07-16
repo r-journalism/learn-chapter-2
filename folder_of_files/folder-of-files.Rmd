@@ -1,11 +1,11 @@
 ---
 title: "Folder of files"
 author: "Andrew Ba Tran"
-description: "https://learn.r-journalism.com/en/importing_exporting"
 output:
   html_document:
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
+description: https://learn.r-journalism.com/en/importing_exporting
 ---
 
 This is from the [first chapter](https://learn.r-journalism.com/en/importing_exporting/folder_of_files/bulk-files/) of [learn.r-journalism.com](https://learn.r-journalism.com/).
@@ -19,7 +19,7 @@ But with R, you can script that process.
 
 In fact, I've created a function for you that simplifies the process.
 
-You have to download my **muckrakr** package off of Github with the **devtools** package.
+You have to download my **muckrakr** package off of GitHub with the **devtools** package.
 
 
 ```{r install_muckrakr, warning=F, message=F}
@@ -45,9 +45,9 @@ Two arguments:
 * folder - The folder in relation to your working directory where the csv files exist. Default folder is the current working directory.
 * export - File name to export csv file as, if wanted.
 
-Alright, so within this project folder is a subfolder full of CSVs. 
+Alright, so within this project folder is a sub folder full of CSVs. 
 
-![](images/csvs.png?classes=shadow)
+![](images/csvs.png)
 
 It's in `data/csvs`
 

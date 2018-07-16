@@ -1,11 +1,11 @@
 ---
 title: "Delimited Text"
 author: "Andrew Ba Tran"
-description: "http://learn.r-journalism.com/en/importing_exporting/"
 output:
   html_document:
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
+description: http://learn.r-journalism.com/en/importing_exporting/
 ---
 
 This is from the [second chapter](https://learn.r-journalism.com/endelimited-text/) of [learn.r-journalism.com](https://learn.r-journalism.com/).
@@ -19,15 +19,15 @@ If opened in a spreadsheet app, the delimited file would be interpreted like any
 
 But this is how a pipe-delimited file looks like internally.
 
-![](images/pipe-delimited.png?classes=shadow)
+![](images/pipe-delimited.png)
 
 And this is how a tab-delimited file looks.
 
-![](images/tab-delimited.png?classes=shadow)
+![](images/tab-delimited.png)
 
 In base R, the way to import these files is to use the `read.table()` function.
 
-You pass it the location of the file (in this case, it's in the subdirectory "data") and whether it has a header row or not and what separater symbol to look for
+You pass it the location of the file (in this case, it's in the sub directory "data") and whether it has a header row or not and what separator symbol to look for
 
 ```{r pipe}
 # read.table(file,  header=logical_value, sep="delimiter")
@@ -47,7 +47,7 @@ df2 <- read.table("data/Employee_Payroll_Tab.txt",  header=TRUE, sep="\t")
 View(df2)
 ```
 
-![](images/df1_success.png?classes=shadow)
+![](images/df1_success.png)
 
 ## read_delim()
 
@@ -57,7 +57,7 @@ The downsides of using the base `read.table()` function are the same as using ba
 * Slow loading
 * Turns strings into Factors automatically
 
-To read in dilimited pipe files use `read_delim()` from **readr**
+To read in delimited pipe files use `read_delim()` from **readr**
 
 ```{r readr_pipe}
 ## If you don't have readr installed yet, uncomment and run the line below
@@ -68,7 +68,7 @@ df1
 ```
 
 ## read_tsv()
-To read in tab dilimited pipe files use `read_tsv()` from **readr**
+To read in tab delimited pipe files use `read_tsv()` from **readr**
 
 ```{r readr_tsv}
 df2 <- read_tsv("data/Employee_Payroll_Tab.txt")
@@ -81,7 +81,7 @@ Sometimes you'll get data with fixed width columns.
 
 It'll look like this.
 
-![](images/fixed_width.png?classes=shadow)
+![](images/fixed_width.png)
 
 
 Just use the [`read_fwf()`](https://readr.tidyverse.org/reference/read_fwf.html) function from the **readr** package.
@@ -108,7 +108,10 @@ There are many methods for this, so be sure to check out [the documentation](htt
 
 data_location <- "data/fixed_width_example.txt"
 
-fixed_example <- read_fwf(data_location, skip=9, fwf_widths(c(8, 2, 12, 12, 29, 3,6, 9, 5, 18, 20, 8), c("entry", "per", "post_date", "gl_account", "description", "source", "cflow", "ref", "post", "debit", "credit", "alloc")))
+fixed_example <- read_fwf(data_location, skip=9, 
+                          fwf_widths(c(8, 2, 12, 12, 29, 3,6, 9, 5, 18, 20, 8), 
+                      c("entry", "per", "post_date", "gl_account", "description", 
+                      "source", "cflow", "ref", "post", "debit", "credit", "alloc")))
 
 head(fixed_example)
 ```

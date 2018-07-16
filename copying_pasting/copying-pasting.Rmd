@@ -1,11 +1,11 @@
 ---
 title: "Copying and pasting data"
 author: "Andrew Ba Tran"
-description: "https://learn.r-journalism.com/en/importing_exporting"
 output:
   html_document:
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
+description: https://learn.r-journalism.com/en/importing_exporting
 ---
 
 This is from the [second chapter](https://learn.r-journalism.com/en/importing_exporting/copying_pasting/datapasta/) of [learn.r-journalism.com](https://learn.r-journalism.com/).
@@ -14,7 +14,7 @@ Getting data into R can be quite difficult if it doesn't come in a pre-made form
 
 I'm talking specifically about data in tables on websites, but this also applies to Excel spreadsheets with odd formatting structures or on PDFs.
 
-Being a disciplined documenter of the process requires that all the steps taken to scrape data from a website or to import data from Excel or a PDF be clearly listed step by step, as well as what it took to transform the data workable dataframe.
+Being a disciplined documenter of the process requires that all the steps taken to scrape data from a website or to import data from Excel or a PDF be clearly listed step by step, as well as what it took to transform the data workable data frame.
 
 Datapasta skips those steps and lets users copy data structured in a table from somewhere else and paste it directly into RStudio. 
 

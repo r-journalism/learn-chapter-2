@@ -1,11 +1,13 @@
 ---
 title: "JSON data"
 author: "Andrew Ba Tran"
-description: "http://learn.r-journalism.com/en/importing_exporting/"
 output:
+  pdf_document:
+    toc: yes
   html_document:
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
+description: http://learn.r-journalism.com/en/importing_exporting/
 ---
 
 This is from the [second chapter](https://learn.r-journalism.com/enjson-files/) of [learn.r-journalism.com](https://learn.r-journalism.com/).
@@ -23,13 +25,14 @@ You'd first visit their [web site](http://sbgi.net/).
 ![](images/sinclair1.png)
 
 And then you might find they have [a map](http://sbgi.net/tv-stations/)!
+
 ![](images/sinclair2.png)
 
 Look at the developer tools in your browser and click over to **Network** you could sort by size and see there's a **json** file being called by the map.
 
 ![](images/sinclair3.png)
 
-If you click into the json link you'll see this data structure that includes affiliation, call letters, and latitude and longitude.
+If you click into the JSON link you'll see this data structure that includes affiliation, call letters, and latitude and longitude.
 
 ![](images/sinclair4.png)
 
@@ -52,7 +55,7 @@ First, install and load the package.
 library(jsonlite)
 ```
 
-Then point to where the json file is. You can use the URL or the local path to it if you've downloaded it. I recommend downloading it as a backup in case the website is restructured.
+Then point to where the JSON file is. You can use the URL or the local path to it if you've downloaded it. I recommend downloading it as a backup in case the website is restructured.
 
 Use the `fromJSON()` function.
 
