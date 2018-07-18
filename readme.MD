@@ -5,7 +5,7 @@ output:
 ---
 ## Chapter 2
 
-These files and folders are meant to accompany the second chapter from the learn.r-journalism.com class.
+These files and folders are meant to accompany the [second chapter](https://learn.r-journalism.com/en/importing_exporting/) from the learn.r-journalism.com class.
 
 The quickest way to access the data for this chapter is to 1) make sure your current project directory is logically organized. 
 
