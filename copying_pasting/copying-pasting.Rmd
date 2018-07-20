@@ -10,11 +10,12 @@ description: https://learn.r-journalism.com/en/importing_exporting
 
 This is from the [second chapter](https://learn.r-journalism.com/en/importing_exporting/copying_pasting/datapasta/) of [learn.r-journalism.com](https://learn.r-journalism.com/).
 
+
 Getting data into R can be quite difficult if it doesn't come in a pre-made format.
 
 I'm talking specifically about data in tables on websites, but this also applies to Excel spreadsheets with odd formatting structures or on PDFs.
 
-Being a disciplined documenter of the process requires that all the steps taken to scrape data from a website or to import data from Excel or a PDF be clearly listed step by step, as well as what it took to transform the data workable data frame.
+Being a disciplined documenter of the process requires that all the steps taken to scrape data from a website or to import data from Excel or a PDF be clearly listed step by step, as well as what it took to transform the data workable dataframe.
 
 Datapasta skips those steps and lets users copy data structured in a table from somewhere else and paste it directly into RStudio. 
 
@@ -22,14 +23,13 @@ Datapasta skips those steps and lets users copy data structured in a table from 
 
 ![Datapasta in action](images/datapasta.gif)
 
-*I'm going to show you how to use **datapasta** but **only** because I'm assuming you'll go back and bring the data in correctly later on as you're adding documentation to your project.*
+**Note**: I'm going to show you how to use **datapasta** but *only* because I'm assuming you'll go back and bring the data in correctly later on as you're adding documentation to your project.
 
-What is `tribble()`? It's a new package that lets you build dataframes in 
-a more human-readable way. [Check out tibble](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html).
+What is `tribble()`? It's a new package that lets you build data frames in a more human-readable way. [Check out tibble](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html).
 
 Datapasta depends on keyboard shortcuts and using RStudio. That's why you'll see things magically appear in the GIF above without any clear commands. I'll explain below.
 
-## Install and load the packages
+### Install and load the packages below
 
 ```{r setup, warning=F, message=F}
 # install.packages("datapasta")
@@ -39,29 +39,31 @@ library(datapasta)
 library(tibble)
 ```
 
-### Setting up shortcuts
-
 Now go to **Tools > Addins > Browse Addins...**
 
-![Browse](images/datapasta1.png)
+```{r img1, echo = F, out.width="100%"}
+library(knitr)
+include_graphics("images/datapasta1.png")
+```
+
 
 Next, click the **Keyboard Shortcuts** button.
 
-![Browse](images/datapasta2.png)
+```{r img2, echo = F, out.width="100%"}
+include_graphics("images/datapasta2.png")
+```
 
-Now, click add the keyboard shorts for each type of data you're creating in the  **Shortcuts** column.
+Now, click add the keyboard shorts for each type of data you're creating in the  **Shortcuts** column. You'll have to click in the blank space in the **Shortcuts** column.
 
 Those are the recommended shortcut commands, but create your own custom one if you want.
 
 Let's go to the Internet Broadway Database and look up some [Hamilton statistics](https://www.ibdb.com/grosses-production/hamilton-499521/1).
 
-![Browse](images/datapasta4.png)
+```{r img3, echo = F, out.width="100%"}
+include_graphics("images/datapasta4.png")
+```
 
-### Copy the data
-
-Select the data in the table and go over to RStudio and use your shortcut to bring in the tibble (for me, it was **shift+cmd+T**).
-
-### Paste the data
+Select the data in the table and go over to RStudio and use your shortcut to bring in the tibble (for me, it was shift+cmd+T).
 
 You'll get something like this.
 
@@ -84,6 +86,9 @@ tribble(
   "Feb 21, 2016", "$1,750,924",         "131%",    "10,756",       "102%",            0,         8
   )
 ```
+
+
+I've heard there are some errors with this process. This happens if the percent signs didn't convert into Xs so it failed because of special characters. You might need to manually replaces those by hand before running the command in the console.
 
 Don't forget to assign it to an object
 
@@ -115,7 +120,9 @@ View(new_table)
 
 ```
 
-![](images/new_table.png)
+```{r img4, echo = F, out.width="100%"}
+include_graphics("images/new_table.png")
+```
 
 Simple!
 

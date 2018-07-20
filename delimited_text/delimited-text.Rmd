@@ -19,11 +19,17 @@ If opened in a spreadsheet app, the delimited file would be interpreted like any
 
 But this is how a pipe-delimited file looks like internally.
 
-![](images/pipe-delimited.png)
+```{r img1, echo = F, out.width="100%"}
+library(knitr)
+include_graphics("images/pipe-delimited.png")
+```
 
 And this is how a tab-delimited file looks.
 
-![](images/tab-delimited.png)
+```{r img2, echo = F, out.width="100%"}
+include_graphics("images/tab-delimited.png")
+```
+
 
 In base R, the way to import these files is to use the `read.table()` function.
 
@@ -34,7 +40,7 @@ You pass it the location of the file (in this case, it's in the sub directory "d
 df1 <- read.table("data/Employee_Payroll_Pipe.txt", header=TRUE, sep="|")
 ```
 
-```{r view1, eval=F}
+```
 View(df1)
 ```
 
@@ -43,11 +49,13 @@ View(df1)
 df2 <- read.table("data/Employee_Payroll_Tab.txt",  header=TRUE, sep="\t")
 ```
 
-```{r view2, eval=F}
+```
 View(df2)
 ```
 
-![](images/df1_success.png)
+```{r img3, echo = F, out.width="100%"}
+include_graphics("images/df1_success.png")
+```
 
 ## read_delim()
 
@@ -81,14 +89,17 @@ Sometimes you'll get data with fixed width columns.
 
 It'll look like this.
 
-![](images/fixed_width.png)
+
+```{r img5, echo = F, out.width="100%"}
+include_graphics("images/fixed_width.png")
+```
 
 
 Just use the [`read_fwf()`](https://readr.tidyverse.org/reference/read_fwf.html) function from the **readr** package.
 
 This is what it needs-- pulled from typing `?read_fwf` in the console:
 
-```{r read_fwf, eval=F}
+```
 read_fwf(file, col_positions, col_types = NULL, locale = default_locale(),
   na = c("", "NA"), comment = "", trim_ws = TRUE, skip = 0,
   n_max = Inf, guess_max = min(n_max, 1000), progress = show_progress())
@@ -108,10 +119,7 @@ There are many methods for this, so be sure to check out [the documentation](htt
 
 data_location <- "data/fixed_width_example.txt"
 
-fixed_example <- read_fwf(data_location, skip=9, 
-                          fwf_widths(c(8, 2, 12, 12, 29, 3,6, 9, 5, 18, 20, 8), 
-                      c("entry", "per", "post_date", "gl_account", "description", 
-                      "source", "cflow", "ref", "post", "debit", "credit", "alloc")))
+fixed_example <- read_fwf(data_location, skip=9, fwf_widths(c(8, 2, 12, 12, 29, 3,6, 9, 5, 18, 20, 8), c("entry", "per", "post_date", "gl_account", "description", "source", "cflow", "ref", "post", "debit", "credit", "alloc")))
 
 head(fixed_example)
 ```

@@ -16,13 +16,24 @@ Excel spreadsheets are unique in that they can contain multiple spreadsheets as 
 
 Excel file names end with a **.xls** or **.xlsx**
 
-![](images/excel1.png)
+
+```{r img1, echo = F, out.width="100%"}
+library(knitr)
+include_graphics("images/excel1.png")
+```
+
+
 
 ## What an Excel file looks like on the inside
 
 Weird, right? Definitely difficult to parse.
 
-![](images/excel2.png)
+
+```{r img2, echo = F, out.width="100%"}
+include_graphics("images/excel2.png")
+```
+
+
 
 ## Importing Excel files
 - Importing Excel is complicated, **readxl package** is needed
@@ -46,7 +57,11 @@ You gotta download the file first.
 
 Right click the link of the [Excel data link](http://www.ct.gov/ocme/cwp/view.asp?a=2165&Q=295128&ocmeNav=|) and click **Save File As...**
 
-![](images/saveexcel.png)
+
+
+```{r img3, echo = F, out.width="100%"}
+include_graphics("images/saveexcel.png")
+```
 
 ## read_excel()
 
@@ -64,7 +79,9 @@ Check it
 View(df_xl)
 ```
 
-![](images/excel_imported.png)
+```{r img5, echo = F, out.width="100%"}
+include_graphics("images/excel_imported.png")
+```
 
 
 **This isn't right**. 
@@ -86,11 +103,12 @@ Much better
 View(df_xl)
 ```
 
-![](images/excel_imported2.png)
+```{r img6, echo = F, out.width="100%"}
+include_graphics("images/excel_imported2.png")
+```
 
-{{% notice warning %}}
-Notice that the column names are preserved with spaces and symbols.
-{{% /notice %}}
+
+**Warning**: Notice that the column names are preserved with spaces and symbols.
 
 
 
@@ -131,7 +149,9 @@ Check it
 View(df_xl)
 ```
 
-![](images/makenames.png)
+```{r img7, echo = F, out.width="100%"}
+include_graphics("images/makenames.png")
+```
 
 ```{r new_colnames}
 colnames(df_xl)
@@ -184,7 +204,9 @@ Fix the other names if you want. I'm going to leave them as is for now.
 
 Scroll down to the bottom of the data.
 
-![](images/nas.png)
+```{r img8, echo = F, out.width="100%"}
+include_graphics("images/nas.png")
+```
 
 
 Not clean yet. There are a bunch of `NA`s. 
@@ -216,7 +238,10 @@ What's the difference? dplyr is part of the tidyverse suite of packages that we'
 
 ### Check it
 
-![](images/no.nas.png)
+```{r img9, echo = F, out.width="100%"}
+include_graphics("images/no.nas.png")
+```
+
 
 No `NAs` at the bottom.
 

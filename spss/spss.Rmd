@@ -2,15 +2,15 @@
 title: "SPSS data"
 author: "Andrew Ba Tran"
 output:
-  pdf_document:
-    toc: yes
   html_document:
     toc: yes
     toc_float: yes
+  pdf_document:
+    toc: yes
 description: http://learn.r-journalism.com/en/importing_exporting/
 ---
 
-This is from the [second chapter](https://learn.r-journalism.com/enspss-files/) of [learn.r-journalism.com](https://learn.r-journalism.com/).
+This is from the [second chapter](https://learn.r-journalism.com/en/importing-exporting/spss/spss-files/) of [learn.r-journalism.com](https://learn.r-journalism.com/).
 
 
 SPSS is similar to Excel in that it's proprietary software that stores data in a very specific format and provides a graphical interface useful for even deeper analysis.
@@ -21,7 +21,7 @@ But it's possible to bring in data saved from SPSS into R.
 
 In this example, we'll be working with case-level data from the FBI's Supplementary Homicide Report. It has data on more than 27,000 homicides and was obtained via Freedom of Information Act by the [Murder Accountability Project](http://www.murderdata.org/p/data-docs.html). 
 
-*Here's a [New Yorker article](https://www.newyorker.com/magazine/2017/11/27/the-serial-killer-detector) about the Murder Accountability Project and its founder Thomas Hargrove, a journalist who tries to find serial killers with data and algorithms. We'll be digging through the data and applying the algorithm ourselves in the next chapter.*
+**Note**: Here's a [New Yorker article](https://www.newyorker.com/magazine/2017/11/27/the-serial-killer-detector) about the Murder Accountability Project and its founder Thomas Hargrove, a journalist who tries to find serial killers with data and algorithms. We'll be digging through the data and applying the algorithm ourselves in the next chapter.
 
 The data zipped is 30 megabytes. Unzipped, the file is almost 200 MB (Good luck opening that in Excel).
 
@@ -29,9 +29,9 @@ But R can handle big data (to an extent). Data is saved to the computer's memory
 
 First download the data. And unzip it into the "data"" sub directory of this working directory.
 
-If you're working with the local data from downloaded from this course's repo, just run the lines of code below.
+If you're working with the local data from downloaded from this course's repo, just run the line of code below.
 
-```{r unzip, warning=F, message=F}
+```
 temp <- tempfile()
 unzip("data/SHR76_16.sav.zip", exdir="data", overwrite=T)
 unlink(temp)
@@ -56,12 +56,14 @@ data_labels <- read.spss("data/SHR76_16.sav", to.data.frame=TRUE)
 ```
 
 Check out what the data frame looks like and scroll all the way to the right of it.
-
-```{r view1, eval=F}
+```
 View(data_labels)
 ```
 
-![](images/data_labels.png)
+```{r img1, echo = F, out.width="100%"}
+library(knitr)
+include_graphics("images/data_labels.png")
+```
 
 ```{r no_labels, warning=F, message=F}
 data_only <- read.spss("data/SHR76_16.sav", to.data.frame=TRUE, use.value.labels=F)
@@ -69,11 +71,14 @@ data_only <- read.spss("data/SHR76_16.sav", to.data.frame=TRUE, use.value.labels
 
 Check out this data frame and scroll all the way to the right.
 
-```{r view2, eval=F}
+```
 View(data_labels)
 ```
 
-![](images/data_only.png)
+```{r img2, echo = F, out.width="100%"}
+include_graphics("images/data_only.png")
+```
+
 
 **Can you spot the difference?**
 
@@ -92,7 +97,12 @@ This is what we need to do.
 1. Bring in the **dplyr** package
 2. Rename the columns that are duplicated but have different data 
 3. Drop the columns in one data set that are duplicated but are the same in the other
-4. Bring them together as one big happy data frame
+4. Bring them together (join) as one big happy data frame
+
+
+**Disclaimer**: This is the first time you will be introduced to the concept of joining data sets, which is one of the most powerful and important things you can do in data analysis. We'll go over it in the [next chapter](http://learn.r-journalism.com/en/wrangling/tidyr_joins/tidyr-joins/) in more detail.
+
+
 
 We'll use the `select()` function from the **dplyr** package that lets you pick and rename specific columns.
 
@@ -186,11 +196,14 @@ rm(new_data_only)
 
 How's it look at the end of the data frame now?
 
-```{r view3, eval=F}
+```
 View(new_data)
 ```
 
-![](images/new_data.png)
+```{r img3, echo = F, out.width="100%"}
+include_graphics("images/new_data.png")
+```
+
 
 There are now 47 columns total and it looks like the values are next to labels.
 
