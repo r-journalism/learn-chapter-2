@@ -12,6 +12,7 @@ runtime: shiny_prerendered
 ---
 
 
+
 ```{r setup, include=FALSE}
 library(learnr)
 library(tidyverse)
@@ -29,7 +30,7 @@ burgers2$grade <- factor(burgers2$grade)
 
 burgers2$id <- factor(burgers2$id)
 burgers2$name <- as.character(burgers2$name)
-burgers2 <- rename(burgers2, `First name`=name)
+burgers2 <- rename(burgers2, employee_id=id)
 
 
 nospace <- function(a) {
@@ -38,9 +39,33 @@ nospace <- function(a) {
   gsub("\\`", "", a)
 }
 
+
 is_bad_code <- function(user_code, check_code, envir_result) {
-  eval(nospace(user_code)) != eval(nospace(check_code), envir = envir_result)
+
+  e_rows <- nrow(eval(parse(text = user_code)))
+  r_rows <- nrow(eval(parse(text = check_code), envir = envir_result))
+  e_cols <- ncol(eval(parse(text = user_code)))
+  r_cols <- ncol(eval(parse(text = check_code), envir = envir_result))
+  e_type <- typeof(eval(parse(text = user_code)))
+  r_type <- typeof(eval(parse(text = check_code), envir=envir_result))
+  e_len <- length(eval(parse(text = user_code)))
+  r_len <- length(eval(parse(text = check_code)))
+  
+  if (e_len!=0 & r_len!=0) {
+    if (e_type==r_type) {
+      if (e_type!="character" & e_type!="double") {
+        if (e_rows==r_rows && e_cols==r_cols) {
+          eval(parse(text = user_code)) != eval(parse(text = check_code), envir = envir_result)
+        } else {
+          TRUE
+        }
+      } else { eval(parse(text = user_code)) != eval(parse(text = check_code), envir = envir_result) }
+    } else {
+      TRUE
+    }
+  } else { TRUE }
 }
+
 
 checker <- function(label, user_code, check_code, envir_result, evaluate_result, ...) {
   if (is_bad_code(user_code, check_code, envir_result)) {
@@ -110,7 +135,7 @@ burgers
 How do you refer to the the *First name* variable/column with **$** and not the **[]**?
 
 ```{r v2, exercise=TRUE}
-# Add to the line below and delete this comment before submitting
+# Add to the line below 
 
 burgers$
 ```
@@ -121,9 +146,6 @@ burgers$`First name`
 ``` 
 
 
-<div id="v2-hint">
-**Hint:** If you have spaces in a column name or it begins with a special character, you should surround the name with backticks ` next to the 1 button. Also, did you delete the commented line before submitting?
-</div>
 
 ### Clean up column name
 
@@ -133,7 +155,7 @@ Run the command on the *First name* variable/column to strip out the spaces and 
 
 
 ```{r v3, exercise=TRUE}
-# Modify the line of code below and delete this comment before submitting
+# Modify the line of code below
 
 burgers2 <- burgers
 
@@ -152,10 +174,6 @@ burgers2
 ``` 
 
 
-<div id="v3-hint">
-**Hint:** Delete the commented line out before submitting.
-</div>
-
 ### Rename a column
 
 Use the special **dplyr** function to rename the *id* variable in **burgers** to *employee_id*
@@ -163,7 +181,7 @@ Use the special **dplyr** function to rename the *id* variable in **burgers** to
 
 
 ```{r rn, exercise=TRUE}
-# Modify the line of code below and delete this comment before submitting
+# Modify the line of code below
 
 burgers2 <- 
   
@@ -172,15 +190,12 @@ burgers2
 
 
 ```{r rn-check}
-burgers2 <- rename(burgers2, `First name`=name)
+burgers2 <- rename(burgers, employee_id=id)
 
 burgers2
 ``` 
 
 
-<div id="rn-hint">
-**Hint:** Delete the commented line out before submitting.
-</div>
 
 ### Filter out NAs
 
@@ -192,7 +207,7 @@ Create a new data frame called **kids** by filtering out the NAs from *grade* co
 
 
 ```{r na, exercise=TRUE}
-# Modify the line of code below and delete this comment before submitting
+# Modify the line of code below 
 
 kids <- _______(burgers2, !____(______))
 
@@ -205,8 +220,3 @@ kids <- filter(burgers2, !is.na(grade))
 
 kids
 ``` 
-
-
-<div id="na-hint">
-**Hint:** Delete the commented line out before submitting.
-</div>
