@@ -55,6 +55,10 @@ include_graphics("images/datapasta2.png")
 
 Now, click add the keyboard shorts for each type of data you're creating in the  **Shortcuts** column. You'll have to click in the blank space in the **Shortcuts** column.
 
+```{r img20, echo = F, out.width="100%"}
+include_graphics("images/datap.png")
+```
+
 Those are the recommended shortcut commands, but create your own custom one if you want.
 
 Let's go to the Internet Broadway Database and look up some [Hamilton statistics](https://www.ibdb.com/grosses-production/hamilton-499521/1).
@@ -130,7 +134,7 @@ Now you can now clean up the column names and up by taking out commas, dollar si
 
 Why did we use tibble instead of the shortcut to build a dataframe? Well, the tibble package is more forgiving of bringing in information with odd characters. If you used the shortcut to bring in the data frame via **shift+cmd+D**, RStudio would've given you an error.
 
-## Using datapasta with vectors
+### Using datapasta with vectors
 
 Sometimes you don't want a whole dataframe and just want a an array.
 

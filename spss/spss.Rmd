@@ -2,11 +2,11 @@
 title: "SPSS data"
 author: "Andrew Ba Tran"
 output:
+  pdf_document:
+    toc: yes
   html_document:
     toc: yes
     toc_float: yes
-  pdf_document:
-    toc: yes
 description: http://learn.r-journalism.com/en/importing_exporting/
 ---
 
@@ -72,7 +72,7 @@ data_only <- read.spss("data/SHR76_16.sav", to.data.frame=TRUE, use.value.labels
 Check out this data frame and scroll all the way to the right.
 
 ```
-View(data_labels)
+View(data_only)
 ```
 
 ```{r img2, echo = F, out.width="100%"}
